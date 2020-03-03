@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+    <events>
+    	<event id="screenloaded">
+			<click>
+				<function name="begin">this</function>
+			</click>
+		</event>
+
+		<event id="btnover">
+			<rollover>
+				<css add="btnOver">this</css>
+			</rollover>
+			
+			<rollout>
+				<css remove="btnOver">this</css>
+			</rollout>
+		</event>
+
+		<event id="optionover">
+			<rollover>
+				<css add="optionOver">this</css>
+			</rollover>
+			
+			<rollout>
+				<css remove="optionOver">this</css>
+			</rollout>
+
+			<click>
+				<css add="optionOver">this</css>
+			</click>
+		</event>
+
+		<event id="imgover">
+			<rollover>
+				<css name="imgOver">this</css>
+			</rollover>
+			
+			<rollout>
+				<css name="imgOut">this</css>
+			</rollout>
+
+			<click>
+				<css name="imgOver">this</css>
+			</click>
+		</event>
+
+		<event id="select">
+			<click>
+				<function name="select">this</function>
+			</click>
+		</event>
+
+		<event id="selectandsubmit">
+			<click>
+				<function name="select">this</function>
+				<function name="submit">this</function>
+			</click>
+		</event>
+
+		<event id="submit">
+			<click>
+				<function name="submit">this</function>
+			</click>
+		</event>
+
+		<event id="reset">
+			<click>
+				<function name="reset">this</function>
+			</click>
+		</event>
+
+		<event id="sca">
+			<click>
+				<function name="sca">this</function>
+			</click>
+		</event>
+
+        <event id="loadNextQuestion">
+            <click>
+                <function name="loadNextQuestion">this</function>
+            </click>
+        </event>
+		
+		<event id="restart">
+            <click>
+                <function name="restart">this</function>
+            </click>
+        </event>
+
+        <event id="sendResult">
+            <click>
+                <function name="sendResultPlain" />
+            </click>
+        </event>
+
+        <event id="loadAnotherPage">
+			<click>
+				<url address="http://www.essemble.co.uk" window="true">this</url>
+			</click>
+		</event>
+    </events>    
+
+    <!--timer-->
+    <div id="timerContainer" anim="none" class="timerContainer"/>
+
+    <!--quiz-->
+    <custom type="quiz" id="quiz" width="100%">
+		<settings cheatmode="false" timer="false" radiobutton="true" radiobuttonx="10" radiobuttony="10" correctx="calc(100% - 30px)" correcty="5" attempts="1"/>
+        
+		<!-- question 1 -->
+        <question id="q1" time="15" event="">
+
+    		<text id="question" margin-top="30" margin-bottom="30" anim="none"><![CDATA[<p class="p_24">True or false?</p><p style="margin-top:20px">When `a != 0`, there are two solutions to `ax^2 + bx + c = 0` and they are:</p><p style="margin-top:30px;text-align:center">`x = (-b +- sqrt(b^2-4ac))/(2a) .`</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text margin-bottom="5" anim="none" event="selectandsubmit" class="optionBox"><![CDATA[<p>True</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="false">
+				<text margin-bottom="5" anim="none" event="selectandsubmit" class="optionBox"><![CDATA[<p>False</p>]]></text>
+			</option>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text anim="none" margin-top="30" margin-bottom="30"><![CDATA[<p class="p_24">Correct!</p><p>Using LaTeX, MathML, or AsciiMath notation, the mathematics will be processed using JavaScript to produce HTML, SVG, or MathML equations for viewing in any modern browser.</p>]]></text>
+		
+				<button target="footer_next" anim="none" event="btnover,loadNextQuestion"><![CDATA[Next]]></button>
+			</fb>
+			
+			<fb id="fail" event="">
+
+				<text anim="none" margin-top="30" margin-bottom="30"><![CDATA[<p class="p_24">Nope!</p><p>Using LaTeX, MathML, or AsciiMath notation, the mathematics will be processed using JavaScript to produce HTML, SVG, or MathML equations for viewing in any modern browser.</p>]]></text>
+		
+				<button target="footer_next" anim="none" event="btnover,loadNextQuestion"><![CDATA[Next]]></button>
+			</fb>
+		</question>
+
+		<!-- question 2 -->
+        <question id="q2" time="15" event="">
+
+    		<text id="question" margin-top="30" margin-bottom="30" anim="none"><![CDATA[<p class="p_24">Which of the following are equal to 64?</p><p>Select all that apply.</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text margin-bottom="5" anim="none" event="select" class="optionBox checkbox"><![CDATA[<p>\[8^2 \]</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="true">
+				<text margin-bottom="5" anim="none" event="select" class="optionBox checkbox"><![CDATA[<p>\[8 \times 8 \]</p>]]></text>
+			</option>
+
+			<!--option 3 -->	
+			<option correct="true">
+				<text margin-bottom="5" anim="none" event="select" class="optionBox checkbox"><![CDATA[<p>\[4^2 \times 4\]</p>]]></text>
+			</option>
+			<!--/options -->
+
+			<button id="submitBtn" margin-top="20" margin-right="10" anim="disable" event="btnover,submit"><![CDATA[Confirm]]></button>
+			<button id="scaBtn" margin-top="20" anim="hide" event="btnover,sca"><![CDATA[See correct answer]]></button>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text anim="none" margin-top="30" margin-bottom="30"><![CDATA[<p class="p_24">Perfect!</p><p>Try the next one.</p>]]></text>
+		
+				<button target="footer_next" anim="none" event="btnover,loadNextQuestion"><![CDATA[Next]]></button>
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text anim="none" margin-top="30" margin-bottom="30"><![CDATA[<p class="p_24">You selected some but not <i>all</i> of the correct options.</p><p>This is the "partial" feedback. <b>Reset</b> and <b>See correct answer</b> buttons are optional if you want to allow the user to retry and/or see the model answer.</p>]]></text>
+		
+				<button target="footer_next" anim="none" event="btnover,loadNextQuestion"><![CDATA[Next]]></button>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text anim="none" margin-top="30" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p><p><b>Reset</b> and <b>See correct answer</b> buttons are optional if you want to allow the user to retry and/or see the model answer.</p>]]></text>
+		
+				<button target="footer_next" anim="none" event="btnover,loadNextQuestion"><![CDATA[Next]]></button>
+			</fb>
+
+			<fb id="generic" event="">	
+
+				<text anim="none" margin-top="30" margin-bottom="30"><![CDATA[<p>These expressions all equal 64. Try the next one.</p>]]></text>
+		
+				<button target="footer_next" anim="none" event="btnover,loadNextQuestion"><![CDATA[Next]]></button>
+			</fb>
+		</question>
+
+		<!-- question 3 -->
+        <question id="q3" time="15" event="">
+
+    		<text id="question" margin-top="30" margin-bottom="30" anim="none"><![CDATA[<p class="p_24">Which of the following are Lorenz Equations?</p><p>Select all that apply.</p>]]></text>
+
+			<!--option 1 -->
+			<option correct="true">
+				<text margin-bottom="5" anim="none" event="select" class="optionBox checkbox"><![CDATA[<p>\[\dot{x} = \sigma(y-x) \]</p>]]></text>
+			</option>
+			
+			<!--option 2 -->	
+			<option correct="true">
+				<text margin-bottom="5" anim="none" event="select" class="optionBox checkbox"><![CDATA[<p>\[\dot{y} = \rho x - y - xz \]</p>]]></text>
+			</option>
+
+			<!--option 3 -->	
+			<option correct="false">
+				<text margin-bottom="5" anim="none" event="select" class="optionBox checkbox"><![CDATA[<p>\[P(E) = {n \choose k} p^k (1-p)^{ n-k} \]</p>]]></text>
+			</option>
+
+			<!--option 4 -->	
+			<option correct="true">
+				<text margin-bottom="5" anim="none" event="select" class="optionBox checkbox"><![CDATA[<p>\[\dot{z} = -\beta z + xy \]</p>]]></text>
+			</option>
+			<!--/options -->
+
+			<button id="submitBtn" margin-top="20" margin-right="10" anim="disable" event="btnover,submit"><![CDATA[Confirm]]></button>
+			<button id="scaBtn" margin-top="20" anim="hide" event="btnover,sca"><![CDATA[See correct answer]]></button>
+			
+			<!-- feedbacks -->
+			<fb id="pass" event="">	
+
+				<text anim="none" margin-top="30" margin-bottom="30"><![CDATA[<p class="p_24">Well done!</p><p>\(P(E) = {n \choose k} p^k (1-p)^{ n-k}\) is the probability of getting \(k\) heads when flipping \(n\) coins.</p>]]></text>
+		
+				<button target="footer_next" anim="none" event="btnover,loadNextQuestion"><![CDATA[How did I do?]]></button>
+			</fb>
+
+			<fb id="partial" event="">	
+
+				<text anim="none" margin-top="30" margin-bottom="30"><![CDATA[<p class="p_24">You selected some but not <i>all</i> of the correct options.</p><p>The Lorenz equations are:</p><p>
+\begin{align}
+\dot{x} & = \sigma(y-x) \\
+\dot{y} & = \rho x - y - xz \\
+\dot{z} & = -\beta z + xy
+\end{align}
+</p><p>This is the "partial" feedback. <b>Reset</b> and <b>See correct answer</b> buttons are optional if you want to allow the user to retry and/or see the model answer.</p>]]></text>
+		
+				<button target="footer_next" anim="none" event="btnover,loadNextQuestion"><![CDATA[How did I do?]]></button>
+			</fb>
+			
+			<fb id="fail" event="">	
+
+				<text anim="none" margin-top="30" margin-bottom="30"><![CDATA[<p class="p_24">Bad luck!</p><p>You didn't select any of the correct options.</p><p>The Lorenz equations are:</p><p>
+\begin{align}
+\dot{x} & = \sigma(y-x) \\
+\dot{y} & = \rho x - y - xz \\
+\dot{z} & = -\beta z + xy
+\end{align}
+</p><p><b>Reset</b> and <b>See correct answer</b> buttons are optional if you want to allow the user to retry and/or see the model answer.</p>]]></text>
+		
+				<button target="footer_next" anim="none" event="btnover,loadNextQuestion"><![CDATA[How did I do?]]></button>
+			</fb>
+
+			<fb id="generic" event="">	
+
+				<text anim="none" margin-top="30" margin-bottom="30"><![CDATA[<p>The Lorenz equations are:</p><p>
+\begin{align}
+\dot{x} & = \sigma(y-x) \\
+\dot{y} & = \rho x - y - xz \\
+\dot{z} & = -\beta z + xy
+\end{align}
+</p>]]></text>
+		
+				<button target="footer_next" anim="none" event="btnover,loadNextQuestion"><![CDATA[How did I do?]]></button>
+			</fb>
+		</question>
+		
+		<!--generic timeout text-->
+		<timeout>
+			<image margin-bottom="30" anim="top" animtime="1" animdelay="0.3" ease="Bounce.easeOut" src="http://www.placehold.it/800x500"/>
+
+			<text margin-bottom="30" anim="top" animtime="1" animdelay="0.2" ease="Bounce.easeOut"><![CDATA[<p class="p_42 grey">Times up!</p>]]></text>
+	
+			<button margin-bottom="30" anim="top" animtime="1" animdelay="0.1" ease="Bounce.easeOut" event="btnover,restart"><![CDATA[Start again]]></button>
+        </timeout>
+
+
+        <!--score screen-->
+        <score masteryscore="80">
+           <pass event="sendResult">
+           		<image margin-bottom="30" anim="scaleup" animtime="1" animdelay="0.3" ease="Bounce.easeOut" src="http://www.placehold.it/800x500"/>
+
+				<text margin-bottom="30" anim="scaleup" animtime="1" animdelay="0.2" ease="Bounce.easeOut"><![CDATA[<p class="p_30">CONGRATULATIONS!</p><p class="p_24">You scored [score]%</p>]]></text>
+
+				<text margin-bottom="30" anim="scaleup" animtime="1" animdelay="0.2" ease="Bounce.easeOut"><![CDATA[<p>Share your result</p><a href="https://twitter.com/intent/tweet?text=I scored [passed] out of [total] on the Multiple Choice Quiz Engine at https://codecanyon.net/item/multiple-choice-quiz-engine/9144382" target="_blank"><i style="font-size:32px;color:#6bc5f5;" class="fab fa-twitter-square"></i></a><a href="https://www.facebook.com/dialog/share?app_id=590538231353092&href=https://codecanyon.net/item/multiple-choice-quiz-engine/9144382&quote=I scored [passed] out of [total] on the Multiple Choice Quiz Engine!&display=popup&redirect_uri=https://codecanyon.net/item/multiple-choice-quiz-engine/9144382" target="_blank"><i style="font-size:32px;color:#415a94;margin-left:10px" class="fab fa-facebook-square"></i></a><a href="mailto:?subject=Shared from Multiple Choice Quiz Engine Quiz&body=I scored [passed] out of [total] on the Multiple Choice Quiz Engine at https://codecanyon.net/item/multiple-choice-quiz-engine/9144382" target="_blank"><i style="font-size:32px;color:#339966;margin-left:10px" class="fas fa-envelope-square"></i></a></p>]]></text>
+				
+				<button margin-bottom="30" anim="scaleup" animtime="1" animdelay="0.1" ease="Bounce.easeOut" event="btnover,restart"><![CDATA[Play again?]]></button>
+            </pass>
+            
+            <fail event="sendResult">
+            	<image margin-bottom="30" anim="scaleup" animtime="1" animdelay="0.3" ease="Bounce.easeOut" src="http://www.placehold.it/800x500"/>
+
+                <text margin-bottom="30" anim="scaleup" animtime="1" animdelay="0.2" ease="Bounce.easeOut"><![CDATA[<p class="p_32">Bad luck! You scored [score]%</p><p class="p_24">Why not have another go?</p>]]></text>
+
+                <text margin-bottom="30" anim="scaleup" animtime="1" animdelay="0.2" ease="Bounce.easeOut"><![CDATA[<p>Share your result</p><a href="https://twitter.com/intent/tweet?text=I scored [passed] out of [total] on the Multiple Choice Quiz Engine at https://codecanyon.net/item/multiple-choice-quiz-engine/9144382" target="_blank"><i style="font-size:32px;color:#6bc5f5;" class="fab fa-twitter-square"></i></a><a href="https://www.facebook.com/dialog/share?app_id=590538231353092&href=https://codecanyon.net/item/multiple-choice-quiz-engine/9144382&quote=I scored [passed] out of [total] on the Multiple Choice Quiz Engine!&display=popup&redirect_uri=https://codecanyon.net/item/multiple-choice-quiz-engine/9144382" target="_blank"><i style="font-size:32px;color:#415a94;margin-left:10px" class="fab fa-facebook-square"></i></a><a href="mailto:?subject=Shared from Multiple Choice Quiz Engine Quiz&body=I scored [passed] out of [total] on the Multiple Choice Quiz Engine at https://codecanyon.net/item/multiple-choice-quiz-engine/9144382" target="_blank"><i style="font-size:32px;color:#339966;margin-left:10px" class="fas fa-envelope-square"></i></a></p>]]></text>
+                    
+				<button margin-bottom="30" anim="scaleup" animtime="1" animdelay="0.1" ease="Bounce.easeOut" event="btnover,restart"><![CDATA[Play again?]]></button>
+            </fail>
+        </score>
+    </custom>
+
+    <!--progress bar and footer elements have reserved ids. They are optional elements and can be moved or removed if not required-->
+    <div id="quiz_footer" margin-top="30" height="47" anim="hide" width="100%" text-align="center">
+    	<div id="quiz_progress_outer"><div id="quiz_progress_inner"></div></div>
+    	<text id="footer_score" float="left" margin-top="13" width="33.33%"><![CDATA[<p style="float:left">Score 0/[score]]</p>]]></text>
+    	<text id="footer_page" float="left" margin-top="13" width="33.33%"><![CDATA[<p>Question [current]]/[total]]</p>]]></text>
+    	<text id="footer_next" float="left" margin-top="5" text-align="right" width="33.33%"><![CDATA[]]></text>
+    </div>
+
+    <!-- 
+    1. Example facebook share link. 
+
+    This one closes the Facebook popup when the post is sent, returning the user to the quiz score screen.
+    The app_id, href and quote, have been changed to reflect something closer to your implementation.  
+
+    <a href="https://www.facebook.com/dialog/share?app_id=xxxxxxxxxxxxxxx&href=http://www.yourdomain.com/quiz/&quote=I scored [passed] out of [total] on the Your Company Name quiz!&display=popup" target="_blank"><i style="font-size:32px;color:#415a94;margin-left:10px" class="fab fa-facebook-square"></i></a> 
+
+
+	2. Another example facebook share link. This one uses a redirect to load another page when the Facebook post is sent. 
+
+    <a href="https://www.facebook.com/dialog/share?app_id=xxxxxxxxxxxxxxx&href=http://www.yourdomain.com/quiz/&quote=I scored [passed] out of [total] on the Your Company Name quiz!&display=popup&redirect_uri=http://www.yourdomain.com/anotherpage" target="_blank"><i style="font-size:32px;color:#415a94;margin-left:10px" class="fab fa-facebook-square"></i></a> 
+
+    In both cases, you will need to change the: 
+    (i) app_id (use your own app id, see notes below)
+    (ii) href (use the url where your quiz is hosted)
+    
+    You can optionally change the quote to use your own message. 
+    Note: the reserved words [passed] and [total] are replaced by the quiz engine. You can also use [score]% to pass forward the score as a percentage.
+
+    On launching the share dialogue, Facebook will trawl the href you add and use the open graph metadata at that URL to show a title, description and thumbnail image.
+    More info: https://developers.facebook.com/docs/sharing/webmasters#markup
+
+    <meta property="og:url"                content="http://www.yourdomain.com/quiz/" />
+    <meta property="og:title"              content="Your Company Name Quiz" />
+    <meta property="og:description"        content="Can you do better?" />
+    <meta property="og:image"              content="http://www.yourdomain.com/quiz/shareimage.jpg" />
+
+
+    NOTES:
+    To use the https://www.facebook.com/dialog/share feature you must use your own app ID.
+    The dialog/share method is the modern share method and recommended by Facebook (at time of writing 11/7/2019). 
+    More info: https://developers.facebook.com/docs/sharing/reference/share-dialog/
+
+    To create an app ID that will you allow users to share to Facebook from your domain, follow the following steps:
+    1. Setup a facebook account if you don't already have one.
+    2. Register as a facebook developer at https://developers.facebook.com/ 
+    3. Go through the Create new app process at https://developers.facebook.com/ (e.g. name it Quiz Engine). This will generate your own app ID.
+    4. Once created, add the href (and redirect_uri id you're using it) domain, under the basic settings tab
+
+    More info: https://developers.facebook.com/docs/apps/
+
+    Please note that we do not support the setting up or troubleshooting of these third party sharing methods.
+	-->
+
+</data>
+
