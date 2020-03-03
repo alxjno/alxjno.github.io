@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:url" content="https://codecanyon.net/item/multiple-choice-quiz-engine/9144382" />
+        <meta property="og:title" content="Multiple Choice Quiz Engine" />
+        <meta property="og:description" content="Can you do better?" />
+        <meta property="og:image" content="https://s3.envato.com/files/109392764/quiz_thumbnail.png" />
+        <title>Multiple Choice Quiz</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Material+Icons" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="lib/css/quiz_leftaligned_math.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <div id="quiz_container"></div>
+        
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+        <script src="lib/js/jquery.js"></script>
+        <script src="lib/js/jquery.easing.1.3.js"></script>
+        <script src="lib/js/jquery.transit.min.js"></script>
+        <script src="lib/js/essemble_core.min.js"></script>
+        <script src="lib/js/mcq.js"></script>
+        <script src="lib/js/quiz.js"></script>
+        
+        <script>
+        var quiz;
+
+        function init(){
+            
+            //create the screen object which loads the xml and creates all screen elements
+            quiz = new Screen({id:"myQuiz", xmlPath:"lib/xml/quiz_leftaligned_math.xml"});
+            
+            //choose a target div
+            var targetDiv = get("quiz_container");
+            
+            //load it
+            quiz.load(targetDiv,false);
+        }
+        
+        //kick off
+        $(document).ready(function() {
+            init();     
+        });
+        
+        </script>
+
+    </body>
+</html>
+
