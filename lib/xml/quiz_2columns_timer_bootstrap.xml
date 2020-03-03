@@ -114,7 +114,7 @@
 			
 			<!--option 1 -->
 			<option correct="false">
-				<image target="col1_1" width="100%" margin-bottom="10" anim="show" animtime="0.5" animdelay="0.5" src="lib/assets/nasa_correct1.jpg" event="optionover,selectandsubmit" class="optionBox"><![CDATA[<p>Yes</p>]]></image>
+				<text target="col1_1" width="100%" margin-bottom="10" anim="show" animtime="0.5" animdelay="0.5" event="optionover,selectandsubmit" class="optionBox"><![CDATA[<p>Yes</p>]]></text>
 			</option>
 			
 			<!--option 2 -->	
@@ -159,10 +159,7 @@
 			
 			<!--option 1 -->
 			<option correct="false">
-				<div target="col2_1" margin-top="0" anim="show" animtime="0.5" event="optionover,selectandsubmit" class="optionBox">
-					<image margin-bottom="30" anim="none" src="lib/assets/nasa_correct2.jpg"/>
-					<text anim="none" margin-bottom="30"><![CDATA[<p class="p_24">Correct!</p><p>You can add as many questions as you like.</p>]]></text>
-				</div>
+				<text target="col2_1" width="100%" margin-bottom="10" anim="show" animtime="0.5" animdelay="0.5" event="optionover,selectandsubmit" class="optionBox"><![CDATA[<p>Limited to 5</p>]]></text>
 			</option>
 			
 			<!--option 2 -->	
